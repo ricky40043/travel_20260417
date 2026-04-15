@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高雄寵物友善兩天一夜</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, 'LiHei Pro', 'Microsoft JhengHei', sans-serif;
+            background-color: #f9fafb;
+        }
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        /* 隱藏未激活的標籤頁內容 */
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="text-gray-800 pb-20">
+
+    <div class="max-w-5xl mx-auto px-4 py-8 mt-6 bg-white rounded-xl shadow-sm border border-gray-100">
+        
+        <!-- 頂部天數標籤 (互動式) -->
+        <div class="flex space-x-6 border-b border-gray-200 mb-6 px-2 overflow-x-auto">
+            <div onclick="openTab('day1', this)" class="tab-btn pb-3 border-b-4 border-blue-600 font-bold text-blue-600 text-lg cursor-pointer whitespace-nowrap">第一天</div>
+            <div onclick="openTab('day2', this)" class="tab-btn pb-3 text-gray-400 font-medium text-lg cursor-pointer hover:text-gray-600 transition-colors whitespace-nowrap">第二天</div>
+            <div onclick="openTab('timeline', this)" class="tab-btn pb-3 text-gray-400 font-medium text-lg cursor-pointer hover:text-gray-600 transition-colors whitespace-nowrap">交通與時間線</div>
+            <div onclick="openTab('budget', this)" class="tab-btn pb-3 text-gray-400 font-medium text-lg cursor-pointer hover:text-gray-600 transition-colors whitespace-nowrap">預算費用</div>
+        </div>
+
+        <!-- ==================== 第一天內容 ==================== -->
+        <div id="day1" class="tab-content block">
+            <!-- 行程大標題 -->
+            <div class="flex flex-col md:flex-row md:items-start space-y-3 md:space-y-0 md:space-x-4 mb-6 px-2">
+                <div class="flex-shrink-0">
+                    <span class="inline-block px-4 py-1.5 border-2 border-gray-800 rounded-lg text-sm font-bold text-gray-800 bg-white">
+                        Day 1
+                    </span>
+                </div>
+                <h1 class="text-xl md:text-2xl font-bold leading-relaxed text-gray-900">
+                    高鐵抵達 ＞ 左咖啡 Zuo Cafe ＞ 駁二藝術特區 ＞ 離好珈琲 ＞ 棧貳庫 ＆ 大港橋賞夕陽 ＞ 六合夜市
+                </h1>
+            </div>
+
+            <!-- 摘要資訊框 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-gray-200 rounded-lg mb-6 bg-white">
+                <div class="flex p-4 md:p-6 border-b md:border-b-0 md:border-r border-gray-200 items-center">
+                    <div class="bg-blue-50 p-3 rounded-full mr-4">
+                        <i data-lucide="bed" class="text-blue-500 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500 mb-1">住宿</div>
+                        <div class="font-medium">西悠巢旅 高雄車站館 (捷運站旁)</div>
+                    </div>
+                </div>
+                <div class="flex p-4 md:p-6 items-center">
+                    <div class="bg-blue-50 p-3 rounded-full mr-4">
+                        <i data-lucide="utensils" class="text-blue-500 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500 mb-1">餐食</div>
+                        <div class="text-sm font-medium leading-relaxed">
+                            午餐：左咖啡 Zuo Cafe (狗狗可落地)<br>
+                            下午茶：離好珈琲 (寵物友善)<br>
+                            晚餐：六合夜市打牙祭
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片列表 (第一天) - 已修復順序與重複問題 -->
+            <div class="space-y-4">
+                
+                <!-- 卡片 1: 西悠巢旅 -->
+                <a href="https://plumpyblog.com/cu-hotel-kaoshung/" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://plumpyblog.com/wp-content/uploads/2025/09/%E8%A5%BF%E6%82%A0%E5%B7%A2%E6%97%85%E9%AB%98%E9%9B%84%E8%BB%8A%E7%AB%99%E9%A4%A8CU-Hotel-04.jpg" alt="西悠巢旅" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2 flex-wrap gap-y-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">11:00 抵達高雄 ＆ 寄放行李</h2>
+                            <span class="ml-3 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看住宿開箱</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            小吉娃娃裝在寵物包裡，11:00抵達高鐵站後搭乘捷運至「高雄車站 (R11)」。步行約 5-8 分鐘抵達西悠巢旅寄放行李，一身輕裝準備出發！
+                        </p>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+                <!-- 卡片 2: 左咖啡 -->
+                <a href="https://oeslees.pixnet.net/blog/posts/17338563749" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://live.staticflickr.com/65535/52400736057_45f0922524_o.jpg" alt="左咖啡" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1495474472205-51f7b7000bf2?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2 flex-wrap gap-y-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">12:15 左咖啡 Zuo Cafe</h2>
+                            <span class="ml-3 border-l-2 border-red-500 pl-3 text-sm text-gray-500 whitespace-nowrap">狗狗可落地</span>
+                            <span class="ml-2 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看食記</span>
+                            <object class="ml-2">
+                                <a href="https://www.google.com/search?q=%E9%AB%98%E9%9B%84+%E5%B7%A6%E5%92%96%E5%95%A1+%E8%8F%9C%E5%96%AE&tbm=isch" target="_blank" class="inline-block px-2 py-0.5 border border-green-200 text-green-700 text-xs rounded font-medium bg-green-50 hover:bg-green-100 transition-colors">📋 菜單連結</a>
+                            </object>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            搭捷運至「鹽埕埔站」。這間店提供美味的平價早午餐，重點是狗狗繫牽繩就可以在店內落地走動，享受與主人一起用餐的悠閒時光！
+                        </p>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+                <!-- 卡片 3: 駁二藝術特區 -->
+                <a href="https://trecamimi.pixnet.net/blog/posts/13279099673" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://khh.travel/Image/55815/?r=1740542789827" alt="駁二藝術特區" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1583096001004-942f9b8b0542?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2 flex-wrap gap-y-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">13:45 駁二藝術特區</h2>
+                            <span class="ml-3 border-l-2 border-red-500 pl-3 text-sm text-gray-500">戶外大草皮跑跑</span>
+                            <span class="ml-2 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看遊記</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            擁有超大片綠地，是狗狗落地放風的最佳聖地！天氣熱時，小吉娃娃裝在背包裡可陪您一起逛紅磚倉庫室內的文創小店，完美兼顧吹冷氣與戶外散步。
+                        </p>
+                        <div class="mt-1 pt-3 border-t border-gray-100">
+                            <p class="text-xs font-bold text-gray-800 mb-2">✨ 推薦必訪景點：</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-50 text-green-700 text-xs px-2 py-1 rounded-md border border-green-200">🌳 哈瑪星鐵道園區 (狗狗跑跑)</span>
+                                <span class="bg-gray-50 text-gray-700 text-xs px-2 py-1 rounded-md border border-gray-200">🏭 大義倉庫群 (文創小店)</span>
+                                <span class="bg-yellow-50 text-yellow-700 text-xs px-2 py-1 rounded-md border border-yellow-200">🍍 微熱山丘 (買伴手禮)</span>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+                <!-- 卡片 4: 離好珈琲 -->
+                <a href="https://maomao.tw/%E9%9B%A2%E5%A5%BD%E7%8F%88%E7%90%B2/" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden bg-gray-100 flex items-center justify-center">
+                        <img src="https://maomao.tw/wp-content/uploads/2024/08/579153_0.jpg" alt="離好珈琲" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2 flex-wrap gap-y-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">15:45 離好珈琲 Lee Ho Coffee</h2>
+                            <span class="ml-3 border-l-2 border-red-500 pl-3 text-sm text-gray-500 whitespace-nowrap">寵物可落地休息</span>
+                            <span class="ml-2 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看食記</span>
+                            <object class="ml-2">
+                                <a href="https://www.google.com/search?q=%E9%AB%98%E9%9B%84+%E9%9B%A2%E5%A5%BD%E7%8F%88%E7%90%B2+%E8%8F%9C%E5%96%AE&tbm=isch" target="_blank" class="inline-block px-2 py-0.5 border border-green-200 text-green-700 text-xs rounded font-medium bg-green-50 hover:bg-green-100 transition-colors">📋 菜單連結</a>
+                            </object>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            在駁二逛累了，步行十分鐘到這間質感咖啡廳。狗狗繫牽繩、穿禮貌帶就能在室內落地。您品嚐甜點咖啡，狗狗也能趴在冷氣房舒服休息。
+                        </p>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+                <!-- 卡片 5: 棧貳庫 ＆ 大港橋賞夕陽 -->
+                <a href="https://www.youtube.com/watch?v=HlmM2bL-iS8" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://cdn2.ettoday.net/images/4909/d4909048.jpg" alt="棧貳庫大港橋" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1600122703816-11f81016834b?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2 flex-wrap gap-y-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">17:00 棧貳庫 ＆ 大港橋賞夕陽</h2>
+                            <span class="ml-3 border-l-2 border-red-500 pl-3 text-sm text-gray-500">絕美海景 / 周邊景點</span>
+                            <span class="ml-2 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看影片</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            傍晚沿著港邊散步。棧貳庫(狗狗不落地)內有許多文創小店；戶外的「大港橋」是拍愛河灣夕陽的絕佳景點！附近還有超美的「高雄流行音樂中心」可以順道去拍夜景。
+                        </p>
+                        <div class="mt-1 pt-3 border-t border-gray-100">
+                            <p class="text-xs font-bold text-gray-800 mb-2">📸 周邊必逛景點推薦：</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-md border border-blue-200">🌉 大港橋旋轉秀 (全台唯一)</span>
+                                <span class="bg-pink-50 text-pink-700 text-xs px-2 py-1 rounded-md border border-pink-200">🎠 白色旋轉木馬 (網美必拍)</span>
+                                <span class="bg-purple-50 text-purple-700 text-xs px-2 py-1 rounded-md border border-purple-200">🎵 高雄流行音樂中心 (絕美夜景)</span>
+                                <span class="bg-teal-50 text-teal-700 text-xs px-2 py-1 rounded-md border border-teal-200">🛍️ 棧貳庫文創市集</span>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+                <!-- 卡片 6: 六合觀光夜市 -->
+                <a href="https://eeooa0314.pixnet.net/blog/posts/9470231063" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://twobunny.tw/wp-content/uploads/2025/06/liouhe-night-market.jpg" alt="夜市" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1574343105374-13840742cd1a?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2 flex-wrap gap-y-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">18:30 六合觀光夜市</h2>
+                            <span class="ml-3 border-l-2 border-red-500 pl-3 text-sm text-gray-500">寬敞夜市散步</span>
+                            <span class="ml-3 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看遊記</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            搭乘捷運至「美麗島站」。這是一條行人徒步區非常寬敞的夜市，牽著 2.5kg 小型犬逛起來相對安全，買些美食回飯店享用，結束完美的第一天！
+                        </p>
+                        <div class="mt-1 pt-3 border-t border-gray-100">
+                            <p class="text-xs font-bold text-gray-800 mb-2">🤤 必吃美食推薦：</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-orange-50 text-orange-700 text-xs px-2 py-1 rounded-md border border-orange-200">🥤 鄭老牌木瓜牛奶</span>
+                                <span class="bg-red-50 text-red-700 text-xs px-2 py-1 rounded-md border border-red-200">🥣 莊記海產粥</span>
+                                <span class="bg-amber-50 text-amber-700 text-xs px-2 py-1 rounded-md border border-amber-200">🍢 烤肉之家</span>
+                                <span class="bg-blue-50 text-blue-700 text-xs px-2 py-1 rounded-md border border-blue-200">🥟 方記水餃</span>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- ==================== 第二天內容 ==================== -->
+        <div id="day2" class="tab-content hidden">
+            <!-- 行程大標題 -->
+            <div class="flex flex-col md:flex-row md:items-start space-y-3 md:space-y-0 md:space-x-4 mb-6 px-2">
+                <div class="flex-shrink-0">
+                    <span class="inline-block px-4 py-1.5 border-2 border-gray-800 rounded-lg text-sm font-bold text-gray-800 bg-white">
+                        Day 2
+                    </span>
+                </div>
+                <h1 class="text-xl md:text-2xl font-bold leading-relaxed text-gray-900">
+                    飯店周邊平價早餐 ＞ 10:30抵達橋頭站(與家人會合) ＞ 燕巢辦桌 ＞ 16:50 高鐵左營回程
+                </h1>
+            </div>
+
+            <!-- 摘要資訊框 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border border-gray-200 rounded-lg mb-6 bg-white">
+                <div class="flex p-4 md:p-6 border-b md:border-b-0 md:border-r border-gray-200 items-center">
+                    <div class="bg-green-50 p-3 rounded-full mr-4">
+                        <i data-lucide="users" class="text-green-500 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500 mb-1">家族行程</div>
+                        <div class="font-medium">上午 10:30 抵達捷運橋頭站會合</div>
+                        <div class="font-medium text-red-500">下午 16:50 抵達高鐵左營站(R16)</div>
+                    </div>
+                </div>
+                <div class="flex p-4 md:p-6 items-center">
+                    <div class="bg-green-50 p-3 rounded-full mr-4">
+                        <i data-lucide="utensils" class="text-green-500 w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500 mb-1">餐食安排</div>
+                        <div class="text-sm font-medium leading-relaxed">
+                            早餐：老江紅茶牛奶<br>
+                            午餐：燕巢傳統辦桌料理<br>
+                            晚餐：高鐵便當或溫暖的家
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片列表 (第二天) -->
+            <div class="space-y-4">
+                <!-- 卡片 1 (指定連結) -->
+                <a href="https://themostugly.pixnet.net/blog/posts/12222951585" target="_blank" class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white card-hover cursor-pointer group">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://www.hanyitea.tw/wp-content/uploads/2024/02/%E5%A4%A7C83D1046-20B6-4E42-AC7E-73D4D178DB55.jpeg" alt="平價早餐" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?w=800'">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">老江紅茶牛奶 (站前店)</h2>
+                            <span class="ml-3 px-2 py-0.5 border border-blue-200 text-blue-600 text-xs rounded font-medium bg-blue-50">點擊看食記</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            距離旅館超近！高雄最經典的平價在地早餐。招牌紅茶牛奶配上火腿蛋吐司，戶外騎樓座位牽著小狗吃也很方便，便宜又美味的完美開局。
+                        </p>
+                        <i data-lucide="chevron-right" class="absolute right-4 text-gray-300 w-6 h-6 group-hover:text-blue-500 transition-colors"></i>
+                    </div>
+                </a>
+
+                <!-- 卡片 2 (修正為家人行程) -->
+                <div class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?w=800" alt="家人聚餐辦桌" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">橋頭站會合 / 祭祖與燕巢辦桌</h2>
+                            <span class="ml-3 border-l-2 border-red-500 pl-3 text-sm text-gray-500">家族專屬一日遊</span>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            10:30 準時抵達捷運橋頭站與家人會合，隨後前往公墓祭拜外婆表達心意。中午抵達燕巢享用傳統且豐盛的在地辦桌料理，度過溫馨的家族相聚時光。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 卡片 3 (高鐵回程) -->
+                <div class="flex flex-col md:flex-row border border-gray-200 rounded-xl overflow-hidden bg-white">
+                    <div class="w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=800" alt="高鐵站" class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full md:w-2/3 p-5 md:p-6 flex flex-col justify-center relative">
+                        <div class="flex items-center mb-2">
+                            <h2 class="text-lg md:text-xl font-bold text-gray-900">左營高鐵回程 (16:50發車)</h2>
+                        </div>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                            結束家族聚會後，預計於 16:00 左右抵達高鐵站。帶著滿滿的回憶，與睡翻的小吉娃娃搭乘 16:50 的高鐵平安回家。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 交通與時間線 ==================== -->
+        <div id="timeline" class="tab-content hidden">
+            <h2 class="text-xl font-bold mb-6 text-gray-900 border-b pb-2">Day 1 時間線</h2>
+            <div class="relative border-l-2 border-blue-500 ml-4 mb-10">
+                
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-blue-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        11:00｜高鐵左營站抵達
+                        <a href="https://www.google.com/maps/search/?api=1&query=高鐵左營站" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚇 搭捷運紅線往南 (約15分鐘) ➔ 高雄車站 (R11)</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-blue-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        11:30｜西悠巢旅 (寄放行李)
+                        <a href="https://www.google.com/maps/search/?api=1&query=西悠巢旅高雄車站館" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚶 步行 5 分鐘回捷運站<br>🚇 搭紅線至美麗島轉橘線 ➔ 鹽埕埔站 (O2)</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-blue-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        12:15｜左咖啡 Zuo Cafe (中餐)
+                        <a href="https://www.google.com/maps/search/?api=1&query=左咖啡+高雄" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚶 吃飽後步行 5-10 分鐘 ➔ 駁二藝術特區</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-blue-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        13:45｜駁二園區 & 15:45 離好珈琲
+                        <a href="https://www.google.com/maps/search/?api=1&query=駁二藝術特區" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>駁二地圖
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=離好珈琲" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>離好珈琲地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚶 園區與咖啡廳皆可步行抵達。</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-blue-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        17:00｜棧貳庫 & 大港橋 (看夕陽)
+                        <a href="https://www.google.com/maps/search/?api=1&query=大港橋" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">📸 推薦附近順遊：高雄流行音樂中心 (絕美海景與建築打卡)</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-blue-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        18:30｜六合夜市 (晚餐)
+                        <a href="https://www.google.com/maps/search/?api=1&query=六合觀光夜市" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚇 從西子灣搭橘線 ➔ 美麗島站 (R10/O5) 逛夜市<br>🚇 逛完搭一站紅線 ➔ 高雄車站回旅館休息。</div>
+                </div>
+            </div>
+
+            <h2 class="text-xl font-bold mb-6 text-gray-900 border-b pb-2">Day 2 時間線</h2>
+            <div class="relative border-l-2 border-red-500 ml-4">
+                
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-red-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        08:30｜老江紅茶牛奶 (早餐)
+                        <a href="https://www.google.com/maps/search/?api=1&query=老江紅茶牛奶高雄站前店" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚶 在飯店附近悠閒吃完早餐並退房。</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-red-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        09:50｜搭乘捷運出發
+                        <a href="https://www.google.com/maps/search/?api=1&query=捷運高雄車站" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚇 進入捷運高雄車站 (R11)，搭乘紅線往岡山方向 (車程約25分鐘)。</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-red-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        10:30｜抵達橋頭站與家人會合
+                        <a href="https://www.google.com/maps/search/?api=1&query=捷運橋頭火車站" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚗 轉乘家人車輛，前往公墓祭拜外婆，隨後至燕巢吃辦桌。</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-red-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        16:00｜準備抵達高鐵站
+                        <a href="https://www.google.com/maps/search/?api=1&query=高鐵左營站" target="_blank" class="inline-flex items-center text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-500 text-xs px-2 py-0.5 rounded transition-colors font-normal">
+                            <i data-lucide="map-pin" class="w-3 h-3 mr-1"></i>Google地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚗 家族聚餐結束，由家人接送或搭乘捷運抵達高鐵左營站 (R16)。</div>
+                </div>
+
+                <div class="mb-6 ml-6 relative">
+                    <div class="absolute -left-[35px] bg-red-500 w-4 h-4 rounded-full border-4 border-white"></div>
+                    <div class="font-bold text-gray-900 text-lg flex items-center flex-wrap gap-2">
+                        16:50｜高鐵發車
+                    </div>
+                    <div class="text-gray-600 text-sm mt-1">🚄 帶著滿滿回憶，準備上車睡覺！</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== 預算費用 ==================== -->
+        <div id="budget" class="tab-content hidden">
+            <!-- 行程大標題 -->
+            <div class="flex flex-col md:flex-row md:items-start space-y-3 md:space-y-0 md:space-x-4 mb-6 px-2">
+                <div class="flex-shrink-0">
+                    <span class="inline-block px-4 py-1.5 border-2 border-gray-800 rounded-lg text-sm font-bold text-gray-800 bg-white">
+                        預算明細
+                    </span>
+                </div>
+                <h1 class="text-xl md:text-2xl font-bold leading-relaxed text-gray-900">
+                    兩天一夜預估花費表 (以單人計算)
+                </h1>
+            </div>
+
+            <div class="overflow-x-auto bg-white rounded-lg border border-gray-200">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">花費項目</th>
+                            <th class="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider">明細與說明</th>
+                            <th class="px-6 py-3 text-right text-xs font-bold text-gray-500 uppercase tracking-wider">預估金額 (TWD)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                                <div class="flex items-center"><i data-lucide="train" class="w-5 h-5 mr-2 text-blue-500"></i>交通費用</div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-600 text-sm">高鐵來回 (依出發地而定，以台北為例約 2,980)<br>高雄捷運車資 (兩日依搭乘次數約 150)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-gray-900 font-medium">約 $3,130</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                                <div class="flex items-center"><i data-lucide="bed" class="w-5 h-5 mr-2 text-purple-500"></i>住宿費用</div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-600 text-sm">西悠巢旅 高雄車站館<br>(依平假日/房型而定，單晚約 1,500 ~ 2,500)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-gray-900 font-medium">約 $2,000</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                                <div class="flex items-center"><i data-lucide="utensils" class="w-5 h-5 mr-2 text-orange-500"></i>餐食費用</div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-600 text-sm">
+                                <b>Day 1：</b>左咖啡(約300)、離好珈琲(約200)、六合夜市(約300)<br>
+                                <b>Day 2：</b>老江紅茶(約100)、燕巢家族辦桌(依家庭習慣)
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-gray-900 font-medium">約 $900</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-900">
+                                <div class="flex items-center"><i data-lucide="paw-print" class="w-5 h-5 mr-2 text-pink-500"></i>寵物相關</div>
+                            </td>
+                            <td class="px-6 py-4 text-gray-600 text-sm">小吉娃娃零食、鮮食、禮貌帶/尿布 (建議出發前自備)</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-gray-900 font-medium">自備 $0</td>
+                        </tr>
+                    </tbody>
+                    <tfoot class="bg-blue-50 font-bold">
+                        <tr>
+                            <td colspan="2" class="px-6 py-4 text-right text-blue-900">單人預估總花費：</td>
+                            <td class="px-6 py-4 text-right text-blue-900 text-xl">約 $6,030</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <p class="text-xs text-gray-400 mt-4 px-2">* 備註：上述費用為概抓預估值。實際花費會因高鐵搭乘距離、飯店預訂時機與折扣、以及個人點餐多寡而有所不同。若有買伴手禮需求，建議多準備 $500~$1,000 預算。</p>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // 標籤頁切換功能
+        function openTab(tabName, element) {
+            // 隱藏所有內容
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+                tab.classList.remove('block');
+            });
+            // 顯示目標內容
+            document.getElementById(tabName).classList.remove('hidden');
+            document.getElementById(tabName).classList.add('block');
+
+            // 重置所有按鈕樣式
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.className = 'tab-btn pb-3 text-gray-400 font-medium text-lg cursor-pointer hover:text-gray-600 transition-colors whitespace-nowrap';
+            });
+            // 點亮當前按鈕
+            element.className = 'tab-btn pb-3 border-b-4 border-blue-600 font-bold text-blue-600 text-lg cursor-pointer whitespace-nowrap';
+        }
+    </script>
+</body>
+</html>
