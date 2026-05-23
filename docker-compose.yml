@@ -1,0 +1,6 @@
+services:
+  app:
+    build: .
+    ports:
+      - "20200:80"
+    restart: unless-stopped
